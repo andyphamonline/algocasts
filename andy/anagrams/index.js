@@ -9,20 +9,20 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    const strA = stringA
-        .toLowerCase()
-        .replace(/[\s\W]/g, "")
-        .split("")
-        .sort()
-        .join("")
-    const strB = stringB
-        .toLowerCase()
-        .replace(/[\s\W]/g, "")
-        .split("")
-        .sort()
-        .join("")
+	const strA = stringA
+		.toLowerCase()
+		.replace(/[\s\W]/g, "")
+		.split("")
+		.sort()
+		.join("")
+	const strB = stringB
+		.toLowerCase()
+		.replace(/[\s\W]/g, "")
+		.split("")
+		.sort()
+		.join("")
 
-    return strA === strB
+	return strA === strB
 }
 
 module.exports = anagrams
