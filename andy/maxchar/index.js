@@ -5,23 +5,45 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
+// function maxChar(str) {
+// 	const obj = {}
+// 	str.split('').forEach((char) => {
+// 		if (obj.hasOwnProperty(char)) obj[char]++
+// 		else obj[char] = 1
+// 	})
+
+// 	let mostCommonChar = ''
+// 	let highestOccurence = 0
+// 	for (let char in obj) {
+// 		if (obj[char] > highestOccurence) {
+// 			highestOccurence = obj[char]
+// 			mostCommonChar = char
+// 		}
+// 	}
+
+// 	return mostCommonChar
+// }
+
 function maxChar(str) {
-    const obj = {}
-    str.split("").forEach((char) => {
-        if (obj.hasOwnProperty(char)) obj[char]++
-        else obj[char] = 1
-    })
+	const arr = str.split('')
+	const obj = arr.reduce((acc, currentValue) => {
+		if (acc.hasOwnProperty(currentValue)) acc[currentValue]++
+		else acc[currentValue] = 1
 
-    let mostCommonChar = ""
-    let highestOccurence = 0
-    for (let char in obj) {
-        if (obj[char] > highestOccurence) {
-            highestOccurence = obj[char]
-            mostCommonChar = char
-        }
-    }
+		return acc
+	}, {})
 
-    return mostCommonChar
+	let mostCommonChar = ''
+	let highestOccurence = 0
+
+	for (let char in obj) {
+		if (obj[char] > highestOccurence) {
+			highestOccurence = obj[char]
+			mostCommonChar = char
+		}
+	}
+
+	return mostCommonChar
 }
 
 module.exports = maxChar

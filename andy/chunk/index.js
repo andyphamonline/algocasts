@@ -7,23 +7,44 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
-// chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
+// *********use temporary array
 function chunk(array, size) {
-    const resultArr = []
-    for (let i = 0; i < array.length; i = i + size) {
-        if (i + size > array.length) resultArr.push(array.slice(i))
-        else resultArr.push(array.slice(i, i + size))
-    }
+	const resultArr = []
+	let chunk = []
+	let counter = 1
+	array.forEach((num) => {
+		chunk.push(num)
+		if (counter === size) {
+			resultArr.push(chunk)
+			chunk = []
+			counter = 1
+		} else {
+			counter++
+		}
+	})
 
-    return resultArr
+	if (chunk.length !== 0) resultArr.push(chunk)
+
+	return resultArr
 }
 
+// *********use slice()
 function chunk(array, size) {
-    return array.reduce((acc, current, index, arr) => {
-        if (index % size !== 0) return acc
-        acc.push(arr.slice(index, index + size))
-        return acc
-    }, [])
+	const resultArr = []
+	for (let i = 0; i < array.length; i = i + size) {
+		resultArr.push(array.slice(i, i + size))
+	}
+
+	return resultArr
 }
+
+// *********use reduce()
+// function chunk(array, size) {
+// 	return array.reduce((acc, currentValue, index, arr) => {
+// 		if (index % size === 0) acc.push(arr.slice(index, index + size))
+
+// 		return acc
+// 	}, [])
+// }
 
 module.exports = chunk
