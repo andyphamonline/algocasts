@@ -1,0 +1,25 @@
+{
+  "name": "algocasts",
+  "version": "1.0.0",
+  "description": "Companion repo to [The Coding Inteview Bootcamp: Algorithms + Data Structures](https://www.udemy.com/course/coding-interview-bootcamp-algorithms-and-data-structure/)",
+  "main": "",
+  "jest": {
+    "verbose": true
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test_justin": "jest --testPathPattern=justin/ --watch",
+    "test_andy": "jest --testPathPattern=andy/ --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theking9985/algocasts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theking9985/algocasts/issues"
+  },
+  "homepage": "https://github.com/theking9985/algocasts#readme"
+}
