@@ -39,12 +39,12 @@ function chunk(array, size) {
 }
 
 // *********use reduce()
-// function chunk(array, size) {
-// 	return array.reduce((acc, currentValue, index, arr) => {
-// 		if (index % size === 0) acc.push(arr.slice(index, index + size))
+function chunk(array, size) {
+	return array.reduce((acc, currentValue, index, arr) => {
+		if (index % size === 0) acc.push(arr.slice(index, index + size))
 
-// 		return acc
-// 	}, [])
-// }
+		return acc
+	}, [])
+}
 
 module.exports = chunk
