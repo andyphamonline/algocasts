@@ -8,6 +8,18 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+// Recursive without memoization will have time complexity O(2^n) because O(branch ^ depth)
+// recursive with memoization
+// Time: O(n)
+// Space: O(n)
+function fib(n, memo = []) {
+	if (n < 2) return n
 
-module.exports = fib;
+	if (n < 2 || memo[n]) return memo[n]
+
+	memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
+
+	return memo[n]
+}
+
+module.exports = fib
